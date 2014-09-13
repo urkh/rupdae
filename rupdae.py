@@ -7,12 +7,20 @@ from PIL import Image, ImageEnhance, ImageOps
 import numpy as np
 from splinter import Browser
 import time
+from selenium.webdriver.common.keys import Keys
+import ipdb as pdb
 
 bro = Browser()
 bro.visit('http://rupdae.superintendenciadepreciosjustos.gob.ve/usuarios/login')
 
-import ipdb
-#ipdb.set_trace()
+#bro.driver.maximize_window()
+
+bro.driver.find_element_by_tag_name("body").send_keys(Keys.CONTROL+'t')
+bro.visit('https://outlook.com')
+#bro.fill('idDiv_PWD_UsernameExample', 'urkh@outlook.com')
+
+
+pdb.set_trace()
 
 
 
@@ -128,6 +136,7 @@ def clean(s):
 
 
 def ejecutar():
+
     screenshot = bro.screenshot(os.getcwd()+"/")
 
     change_brig(screenshot)
